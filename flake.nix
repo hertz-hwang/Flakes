@@ -46,30 +46,8 @@
             #run by `nix develop` or `nix-shell`(legacy)
             default = import ./shell.nix { inherit pkgs; };
             #run by `nix develop .#<name>`
-            blog = with pkgs; mkShell {
-              name = "blog";
-              nativeBuildInputs = [
-                hugo
-              ];
-              shellHook = ''
-                export PS1="\e[0;32m(Blog)\$ \e[m" 
-                cd ./blog
-                cp -r ./static/hugo-theme-stack ./themes/
-                #hugo server --buildDrafts --forceSyncStatic
-              '';
-            };
-            secret = with pkgs; mkShell {
-              name = "secret";
-              nativeBuildInputs = [
-                sops
-                age
-                ssh-to-age
-                ssh-to-pgp
-              ];
-              shellHook = ''
-                export PS1="\e[0;31m(Secret)\$ \e[m" 
-              '';
-            };
+            blog = import ./blog.nix { inherit pkgs; };
+            secret = import ./secret.nix { inherit pkgs; };
           };
 
           formatter = pkgs.nixpkgs-fmt;
