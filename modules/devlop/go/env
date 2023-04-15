@@ -1,0 +1,3 @@
+GO111MODULE=on
+GOMODCACHE=/home/hertz/Codelearning/go/pkg/mod
+GOPATH=/home/hertz/Codelearning/go
