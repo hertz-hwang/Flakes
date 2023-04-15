@@ -155,12 +155,12 @@
       bind = $mainMod,F,fullscreen
       bind = $mainMod,Y,pin
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
+      #bind = $mainMod, J, togglesplit, # dwindle
 
       #-----------------------#
       # Toggle grouped layout #
       #-----------------------#
-      bind = $mainMod, K, togglegroup,
+      #bind = $mainMod, K, togglegroup,
       bind = $mainMod, Tab, changegroupactive, f
 
       #------------#
@@ -172,10 +172,10 @@
       #--------------------------------------#
       # Move focus with mainMod + arrow keys #
       #--------------------------------------#
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
+      bind = $mainMod, H, movefocus, l
+      bind = $mainMod, L, movefocus, r
+      bind = $mainMod, K, movefocus, u
+      bind = $mainMod, J, movefocus, d
 
       #----------------------------------------#
       # Switch workspaces with mainMod + [0-9] #
@@ -190,8 +190,8 @@
       bind = $mainMod, 8, workspace, 8
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 0, workspace, 10
-      bind = $mainMod, L, workspace, +1
-      bind = $mainMod, H, workspace, -1
+      #bind = $mainMod, L, workspace, +1
+      #bind = $mainMod, H, workspace, -1
       bind = $mainMod, period, workspace, e+1
       bind = $mainMod, comma, workspace,e-1
       bind = $mainMod, Q, workspace,QQ
@@ -207,10 +207,10 @@
       #----------------------------------#
       # move window in current workspace #
       #----------------------------------#
-      bind = $mainMod SHIFT,left ,movewindow, l
-      bind = $mainMod SHIFT,right ,movewindow, r
-      bind = $mainMod SHIFT,up ,movewindow, u
-      bind = $mainMod SHIFT,down ,movewindow, d
+      bind = $mainMod SHIFT,H ,movewindow, l
+      bind = $mainMod SHIFT,L ,movewindow, r
+      bind = $mainMod SHIFT,K ,movewindow, u
+      bind = $mainMod SHIFT,J ,movewindow, d
 
       #---------------------------------------------------------------#
       # Move active window to a workspace with mainMod + ctrl + [0-9] #
@@ -225,8 +225,8 @@
       bind = $mainMod CTRL, 8, movetoworkspace, 8
       bind = $mainMod CTRL, 9, movetoworkspace, 9
       bind = $mainMod CTRL, 0, movetoworkspace, 10
-      bind = $mainMod CTRL, left, movetoworkspace, -1
-      bind = $mainMod CTRL, right, movetoworkspace, +1
+      bind = $mainMod CTRL, H, movetoworkspace, -1
+      bind = $mainMod CTRL, L, movetoworkspace, +1
       # same as above, but doesnt switch to the workspace
       bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
       bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
