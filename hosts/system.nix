@@ -56,6 +56,7 @@
       rar
       frp
       sops
+      leafpad
     ];
   };
   services.dbus.enable = true;
