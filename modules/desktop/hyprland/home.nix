@@ -362,7 +362,7 @@
       windowrule=float,ncmpcpp
       windowrule=move 25%-,ncmpcpp
       windowrule=size 960 540,ncmpcpp
-      windowrule=noblur,^(firefox)$
+      windowrule=opacity 1.00,noblur,^(firefox)$
     '';
   };
 }
