@@ -143,7 +143,7 @@
         focus_on_activate = true
       }
 
-      device:logitech-g604--1 {
+      device:epic mouse V1 {
         sensitivity = -0.5
       }
 
@@ -256,7 +256,7 @@
       #------------------------# 
       bind=$mainMod,B,exec,firefox
       bind=$mainMod,E,exec,nemo
-      bind=$mainMod,M,exec,kitty --class="musicfox" --hold sh -c "musicfox"
+      bind=$mainMod SHIFT,M,exec,kitty --class="musicfox" --hold sh -c "musicfox"
       bind=$mainMod SHIFT,D,exec,kitty  --class="danmufloat" --hold sh -c "export TERM=xterm-256color && bili"
       bind=$mainMod SHIFT,X,exec,myswaylock
       bind=$mainMod,T,exec,telegram-desktop

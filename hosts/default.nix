@@ -23,6 +23,7 @@ in
       inputs.nur.nixosModules.nur
       inputs.hyprland.nixosModules.default
       inputs.sops-nix.nixosModules.sops
+      inputs.musnix.nixosModules.musnix
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

@@ -13,6 +13,8 @@
       flake-parts.url = "github:hercules-ci/flake-parts";
       sops-nix.url = "github:Mic92/sops-nix";
       picom.url = "github:yaocccc/picom";
+      emacs-overlay.url = "github:nix-community/emacs-overlay";
+      musnix.url = "github:musnix/musnix";
       hyprland = {
         url = "github:hyprwm/Hyprland";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +23,6 @@
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
       };
-      emacs-overlay.url = "github:nix-community/emacs-overlay";
     };
 
   outputs = inputs @ { self, nixpkgs, flake-parts, ... }:

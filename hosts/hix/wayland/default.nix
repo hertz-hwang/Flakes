@@ -30,6 +30,12 @@
       aichat
       chatgpt-cli
       bili_tui
+      pavucontrol
+      libjack2
+      jack2
+      qjackctl
+      jack2Full
+      jack_capture
     ]) ++ (with config.nur.repos;[
       linyinfeng.icalingua-plus-plus
     ]);
