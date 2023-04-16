@@ -1,9 +1,5 @@
-**简体中文（中国大陆）** | [English (UK)](README_en.md)
-
-[![Push Blog](https://github.com/ruixi-rebirth/flakes/actions/workflows/push_blog.yml/badge.svg)](https://ruixi-rebirth.github.io) 
-
 <p align="center"><img src="https://user-images.githubusercontent.com/75824585/210402874-da3422d5-ab65-4975-b73a-c300065c6792.png" width=300px></p>
-<h2 align="center">Ruixi-rebirth's NixOS Config</h2>
+<h2 align="center">Hertz's NixOS Config</h2>
 <p align="center"><img src="https://user-images.githubusercontent.com/75824585/196195007-ecebb290-2c6b-4fab-9e1e-2dbb12f7eb44.png" width=300px></p>
 
 
@@ -84,7 +80,7 @@ https://user-images.githubusercontent.com/75824585/220659189-be78cf81-0b8c-4865-
 │  ├── static
 │  └── themes
 ├── hosts
-│  ├── laptop
+│  ├── hix
 │  └── server
 ├── modules
 │  ├── desktop
@@ -114,24 +110,67 @@ https://user-images.githubusercontent.com/75824585/220659189-be78cf81-0b8c-4865-
 ```
 
 ### 如何安装？
-最小安装(包含wm,没有tmpfs as root)，前往[此处](https://github.com/Ruixi-rebirth/flakes/tree/minimal)
+最小安装(包含wm,没有tmpfs as root)，前往[此处](https://git.26hz.com.cn/hertz/Flakes/tree/minimal)
 
 ### 如何安装?(root on tmpfs)
 
 
-0. 准备一个64位的nixos [minimal iso image](https://channels.nixos.org/nixos-22.11/latest-nixos-minimal-x86_64-linux.iso) 烧录好,然后进入live系统。假设我已经分好两个分区`/dev/nvme0n1p1` `/dev/nvme0n1p3`
+0. 准备一个64位的nixos [minimal iso image](https://channels.nixos.org/nixos-22.11/latest-nixos-minimal-x86_64-linux.iso) 烧录好,然后进入live系统。制作两个分区`/dev/nvme0n1p1` `/dev/nvme0n1p2` (分区需谨慎！！！)
+```bash
+  wipefs -af /dev/nvme0n1
+  sgdisk -Zo /dev/nvme0n1
+
+  parted --script -a optimal /dev/nvme0n1 \
+  unit mib \
+  mklabel gpt \
+  mkpart esp fat32 1 1025 \
+  set 1 boot on \
+  mkpart rootfs 1025 100%
+```
 1. 格式化分区
 ```bash
-  mkfs.fat -F 32 /dev/nvme0n1p1 
-  mkfs.ext4 /dev/nvme0n1p3
+  mkfs.fat -F 32 -n BOOT /dev/nvme0n1p1
+
+## zfs encrypt:
+  zpool create -f \
+    -o ashift=12 \
+    -o autotrim=on \
+    -O acltype=posixacl \
+    -O atime=off \
+    -O canmount=off \
+    -O compression=zstd \
+    -O dnodesize=auto \
+    -O normalization=formD \
+    -O xattr=sa \
+    -O mountpoint=none \
+    -O encryption=on \
+    -O keylocation=prompt \
+    -O keyformat=passphrase \
+    rpool /dev/disk/by-id/nvme-WD_BLACK_SN770_1TB_223814806237-part2
+## zfs unencrypt:
+  zpool create -f \
+    -o ashift=12 \
+    -o autotrim=on \
+    -O acltype=posixacl \
+    -O atime=off \
+    -O canmount=off \
+    -O compression=zstd \
+    -O dnodesize=auto \
+    -O normalization=formD \
+    -O xattr=sa \
+    -O mountpoint=none \
+    rpool /dev/disk/by-id/nvme-WD_BLACK_SN770_1TB_223814806237-part2
 ```
 2. 挂载
 ```bash
+  zfs create -p -o refreservation=1G -o mountpoint=none rpool/local/reserved
+  zfs create -p rpool/local/nix
+
   mount -t tmpfs none /mnt 
   mkdir -p /mnt/{boot,nix,etc/nixos}
-  mount /dev/nvme0n1p3 /mnt/nix
   mount /dev/nvme0n1p1 /mnt/boot 
-  mkdir -p /mnt/nix/persist/etc/nixos
+  mount -t zfs -o zfsutil rpool/local/nix /mnt/nix
+  mkdir -pv /mnt/nix/persist/etc/nixos
   mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
 ```
 3. 生成一个基本的配置 
@@ -141,22 +180,25 @@ https://user-images.githubusercontent.com/75824585/220659189-be78cf81-0b8c-4865-
 4. 克隆仓库到本地
 ```bash
 nix-shell -p git
-git clone  https://github.com/Ruixi-rebirth/flakes.git /mnt/etc/nixos/Flakes 
+git clone  https://git.26hz.com.cn/hertz/Flakes.git /mnt/etc/nixos/Flakes 
 cd  /mnt/etc/nixos/Flakes/
 nix develop --extra-experimental-features nix-command --extra-experimental-features flakes
 ```
-5. 将 /mnt/etc/nixos 中的 `hardware-configuration.nix` 拷贝到 /mnt/etc/nixos/Flakes/hosts/laptop/hardware-configuration.nix
+5. 将 /mnt/etc/nixos 中的 `hardware-configuration.nix` 拷贝到 /mnt/etc/nixos/Flakes/hosts/hix/hardware-configuration.nix
 ```bash 
-cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/Flakes/hosts/laptop/hardware-configuration.nix
+cp /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/Flakes/hosts/hix/hardware-configuration.nix
 ```
 6. 修改被覆盖后的 `hardware-configuration.nix`
 ```bash
-nvim /mnt/etc/nixos/Flakes/hosts/laptop/hardware-configuration.nix
+nvim /mnt/etc/nixos/Flakes/hosts/hix/hardware-configuration.nix
 ```
 ```nix
 ...
 #这只是一个例子
 #请参考 `https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/#step-4-1-configure-disks`
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  networking.hostId = <host-id>; # For example: head -c 8 /etc/machine-id
 
   fileSystems."/" =
     { device = "none";
@@ -165,8 +207,9 @@ nvim /mnt/etc/nixos/Flakes/hosts/laptop/hardware-configuration.nix
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/49e24551-c0e0-48ed-833d-da8289d79cdd";
-      fsType = "ext4";
+    { device = "rpool/local/nix";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
@@ -179,6 +222,12 @@ nvim /mnt/etc/nixos/Flakes/hosts/laptop/hardware-configuration.nix
       fsType = "none";
       options = [ "bind" ];
     };
+
+  fileSystems."/tmp" =
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=32G" "mode=1777" ];
+    };
 ...
 ```
 7. 移除 '/mnt/etc/nixos/Flakes/.git'
@@ -187,23 +236,23 @@ rm -rf .git
 ```
 8. 用户名修改: 编辑 `/mnt/etc/nixos/Flakes/flake.nix` 修改 **user** 变量,主机名修改: 编辑 `/mnt/etc/nixos/Flakes/hosts/system.nix ` 修改 **networking** 属性组中的 **hostName** 值
 
-9. 使用 `mkpasswd {PASSWORD} -m sha-512` 命令生成的密码哈希串替换掉 `/mnt/etc/nixos/Flakes/hosts/laptop/wayland/default.nix` 中的 `users.users.<name>.hashedPassword` 值替换掉。（在文件中有两处需要替换的内容）
+9. 使用 `mkpasswd {PASSWORD} -m sha-512` 命令生成的密码哈希串替换掉 `/mnt/etc/nixos/Flakes/hosts/hix/wayland/default.nix` 中的 `users.users.<name>.hashedPassword` 值替换掉。（在文件中有两处需要替换的内容）
 
 10. 选择 Window Manager 
-> Wayland: [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L17) 和 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L34) **取消注释**, 并且**注释** [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L18) 和 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L35)
+> Wayland: [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L17) 和 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L34) **取消注释**, 并且**注释** [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L18) 和 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L35)
 
-Hyprland: 如果 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/laptop/wayland/default.nix#L12) 和 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/laptop/wayland/home.nix#L6) 有注释, 则均**取消注释**, 并且**注释**掉下面涉及到 sway 的两行   
+Hyprland: 如果 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/hix/wayland/default.nix#L12) 和 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/hix/wayland/home.nix#L6) 有注释, 则均**取消注释**, 并且**注释**掉下面涉及到 sway 的两行   
 
-Sway: 如果 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/laptop/wayland/default.nix#L11)  和  [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/laptop/wayland/home.nix#L5) 有注释, 则均**取消注释**, 并且**注释**掉上面涉及到 hyprland 的两行 
+Sway: 如果 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/hix/wayland/default.nix#L11)  和  [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/hix/wayland/home.nix#L5) 有注释, 则均**取消注释**, 并且**注释**掉上面涉及到 hyprland 的两行 
 
-> Xorg: [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L18) 和 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L35) **取消注释**, 并且**注释** [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L17) 和 [这行](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/default.nix#L34)
+> Xorg: [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L18) 和 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L35) **取消注释**, 并且**注释** [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L17) 和 [这行](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/default.nix#L34)
 
 Bspwm: 默认
 
 11. 选择主题
 >Wayland
 
-[这里](https://github.com/Ruixi-rebirth/flakes/blob/main/hosts/laptop/wayland/home.nix#L11-L13) 任意选择一个
+[这里](https://git.26hz.com.cn/hertz/Flakes/blob/main/hosts/hix/wayland/home.nix#L11-L13) 任意选择一个
 
 > Xorg 
 
@@ -211,14 +260,16 @@ nord: 默认
 
 12. 安装
 ```bash
-nixos-install --no-root-passwd --flake .#laptop
+nixos-install --no-root-passwd --flake .#hix
 
 #或者指定源：
-nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" --no-root-passwd --flake .#laptop
+nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" --no-root-passwd --flake .#hix
 ```
 
 13. 重启
 ```bash
+umount -Rl /mnt
+zpool export -a
 reboot
 ```
 14. 享受它吧！
