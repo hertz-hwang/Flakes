@@ -57,6 +57,7 @@
       frp
       sops
       leafpad
+      gptfdisk
     ];
   };
   services.dbus.enable = true;
