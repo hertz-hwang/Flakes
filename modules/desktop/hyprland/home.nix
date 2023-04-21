@@ -350,7 +350,7 @@
       windowrule=size 960 540,termfloat
       windowrule=rounding 5,termfloat
       windowrule=float,nemo
-      windowrule=size 1280 720,nemo
+      #windowrule=size 1280 720,nemo
       windowrule=float,Leafpad
       windowrule=move 25%-,Leafpad
       windowrule=size 960 540,Leafpad
