@@ -28,5 +28,6 @@ buildGoModule rec {
     homepage = "https://github.com/yaocccc/bilibili_live_tui";
     mainProgram = "bili";
     platforms = platforms.linux;
+    maintainers = with maintainers; [ Ruixi-rebirth Hertz ];
   };
 }

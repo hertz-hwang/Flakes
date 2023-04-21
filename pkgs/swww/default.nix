@@ -9,7 +9,7 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "swww";
-  version = "0.7.2";
+  version = "0.7.3";
 
   src = fetchFromGitHub {
     owner = "Horus645";
@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-1SmCeIlcjOX3yCvpfqQ82uq4h2xlGhX9OCwKb6jGK78=";
   };
 
-  cargoHash = "sha256-08YM9yTCRJPHdOc1+7F3guYiP3y1WSi3/hzlDRVpitc=";
+  cargoHash = "sha256-52uRogUcwR/NeuZC3g2m6f6A7HlxLmFn0sXxpsc+SpA=";
 
   nativeBuildInputs = [ pkg-config ];
 
@@ -31,5 +31,6 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/Horus645/${pname}";
     license = licenses.gpl3Only;
     platforms = [ "x86_64-linux" ];
+    maintainers = with maintainers; [ Ruixi-rebirth Hertz ];
   };
 }

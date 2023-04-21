@@ -19,5 +19,6 @@ stdenv.mkDerivation {
     description = "Fcitx 5 PinyinDictionary from zh.moegirl.org.cn ";
     homepage = "https://github.com/outloudvi/mw2fcitx";
     license = licenses.unlicense;
+    maintainers = with maintainers; [ Ruixi-rebirth Hertz ];
   };
 }

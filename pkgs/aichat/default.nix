@@ -30,6 +30,6 @@ rustPlatform.buildRustPackage rec {
   meta = with lib; {
     description = "Using ChatGPT/GPT-3.5/GPT-4 in the terminal";
     homepage = "https://github.com/sigoden/aichat";
-    maintainers = with maintainers; [ Ruixi-rebirth ];
+    maintainers = with maintainers; [ Ruixi-rebirth Hertz ];
   };
 }
