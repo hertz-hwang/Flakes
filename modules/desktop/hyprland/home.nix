@@ -156,6 +156,7 @@
       bind = $mainMod,Y,pin
       bind = $mainMod, P, pseudo, # dwindle
       #bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, G, exec, transtify
 
       #-----------------------#
       # Toggle grouped layout #
@@ -166,8 +167,8 @@
       #------------#
       # change gap #
       #------------#
-      bind = $mainMod SHIFT, G,exec,hyprctl --batch "keyword general:gaps_out 5;keyword general:gaps_in 3"
-      bind = $mainMod , G,exec,hyprctl --batch "keyword general:gaps_out 0;keyword general:gaps_in 0"
+      #bind = $mainMod SHIFT, G,exec,hyprctl --batch "keyword general:gaps_out 5;keyword general:gaps_in 3"
+      #bind = $mainMod , G,exec,hyprctl --batch "keyword general:gaps_out 0;keyword general:gaps_in 0"
 
       #--------------------------------------#
       # Move focus with mainMod + arrow keys #

@@ -199,6 +199,15 @@ let
 
     socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do border_color $line; done
   '';
+  datahdd = pkgs.writeShellScriptBin "datahdd" ''
+    DATA_DEV=`blkid | grep DATA_HDD | awk -F: '{ print $1 }'`
+    MOUNTPOINT=/mnt/hdd
+    doas umount $MOUNTPOINT || ( doas mkdir -p $MOUNTPOINT && doas mount.ntfs $DATA_DEV $MOUNTPOINT )
+  '';
+  transtify = pkgs.writeShellScriptBin "transtify" ''
+    transout=$(crow -b -t zh-CN -- "$(wl-paste -p)")
+    notify-send -- "$transout"
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -212,5 +221,7 @@ in
     default_wall
     launch_waybar
     border_color
+    datahdd
+    transtify
   ];
 }

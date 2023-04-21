@@ -58,6 +58,7 @@
       sops
       leafpad
       gptfdisk
+      crow-translate
     ];
   };
   services.dbus.enable = true;

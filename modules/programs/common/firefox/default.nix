@@ -6,9 +6,9 @@
     package = pkgs.wrapFirefox pkgs.firefox-esr-unwrapped {
       nixExtensions = [
         (pkgs.fetchFirefoxAddon {
-          name = "Tree-Style-Tab";
-          url = "https://addons.mozilla.org/firefox/downloads/file/4088468/tree_style_tab-3.9.15.xpi";
-          sha256 = "sha256-fJk7ri1DSIYV8aO3RZosNXMKSGs4VQSXCcY2qEdR0lI=";
+          name = "Sidebery";
+          url = "https://addons.mozilla.org/firefox/downloads/file/3994928/sidebery-4.10.2.xpi";
+          sha256 = "sha256-YONfK/rIjlsrTgRHIt3km07Q7KnpIW89Z9r92ZSCc6w=";
         })
         (pkgs.fetchFirefoxAddon {
           name = "Bitwarden";

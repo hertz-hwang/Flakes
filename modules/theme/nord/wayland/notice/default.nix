@@ -7,12 +7,13 @@
     height = 500;
     margin = "10";
     padding = "5";
-    borderSize = 3;
-    borderRadius = 3;
+    borderSize = 2;
+    borderRadius = 0;
     backgroundColor = "#3A4353";
     borderColor = "#c0caf5";
     progressColor = "over #3B4252";
     textColor = "#FAF4FC";
+    defaultTimeout = 10000;
     extraConfig = ''
       text-alignment=center
       [urgency=high]
