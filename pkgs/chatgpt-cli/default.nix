@@ -5,7 +5,7 @@
 }:
 buildGoModule rec {
   pname = "chatgpt";
-  version = "1.1.1";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
     owner = "j178";
