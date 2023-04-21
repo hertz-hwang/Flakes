@@ -1,6 +1,6 @@
 local options = {
 	clipboard = "unnamedplus",
-	mouse = "a",
+	mouse = "",
 	undofile = true,
 	ignorecase = true,
 	smartcase = true,
