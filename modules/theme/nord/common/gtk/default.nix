@@ -5,8 +5,8 @@
     GTK_THEME = "Nordic";
   };
   home.pointerCursor = {
-    package = pkgs.catppuccin-cursors;
-    name = "Catppuccin-Frappe-Dark";
+    package = pkgs.nordzy-cursors;
+    name = "Nordzy-cursors";
     size = 16;
   };
   home.pointerCursor.gtk.enable = true;
@@ -17,7 +17,7 @@
       package = pkgs.nordic;
     };
     cursorTheme = {
-      name = "Catppuccin-Frappe-Dark";
+      name = "Nordzy-cursors";
     };
     iconTheme = {
       name = "Papirus-Dark";
