@@ -4,7 +4,7 @@
 }:
 stdenv.mkDerivation {
   pname = "fcitx5-pinyin-zhwiki";
-  version = "20230128";
+  version = "0.2.4";
 
   src = fetchurl {
     url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.4/zhwiki-20230128.dict";
