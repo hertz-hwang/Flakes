@@ -3,7 +3,10 @@
 {
   nixpkgs.system = "x86_64-linux";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
 
   networking = {
     hostName = "hix"; # Define your hostname.

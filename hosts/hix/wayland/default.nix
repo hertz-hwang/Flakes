@@ -23,7 +23,6 @@
     packages = (with pkgs; [
       tdesktop
       qq
-      feishu
       thunderbird
       blender
       dbeaver
@@ -36,6 +35,7 @@
       qjackctl
       jack2Full
       jack_capture
+      pulseaudioFull
     ]) ++ (with config.nur.repos;[
       linyinfeng.icalingua-plus-plus
     ]);

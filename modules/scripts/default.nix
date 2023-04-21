@@ -208,6 +208,15 @@ let
     transout=$(crow -b -t zh-CN -- "$(wl-paste -p)")
     notify-send -- "$transout"
   '';
+  audio_channels = pkgs.writeShellScriptBin "audio_channels" ''
+    pactl unload-module module-pipe-sink
+    pactl load-module module-pipe-sink sink_name=Mic channels=2 sink_properties=device.description=Mic
+    pactl load-module module-pipe-sink sink_name=Sys channels=2 sink_properties=device.description=Sys
+    pactl load-module module-pipe-sink sink_name=Web channels=2 sink_properties=device.description=Web
+    pactl load-module module-pipe-sink sink_name=Med channels=2 sink_properties=device.description=Med
+    pactl load-module module-pipe-sink sink_name=Oth channels=2 sink_properties=device.description=Oth
+    pactl load-module module-pipe-sink sink_name=Mix channels=2 sink_properties=device.description=Mix
+  '';
 in
 {
   home.packages = with pkgs; [
@@ -223,5 +232,6 @@ in
     border_color
     datahdd
     transtify
+    audio_channels
   ];
 }

@@ -300,7 +300,7 @@
       binde=,k,resizeactive,0 -15
       binde=,j,resizeactive,0 15
       bind=,escape,submap,reset 
-      submap=reset
+      submap=resel
 
       bind=CTRL SHIFT, left, resizeactive,-15 0
       bind=CTRL SHIFT, right, resizeactive,15 0
@@ -326,6 +326,7 @@
       exec-once = mako &
       exec-once = border_color &
       exec-once = nm-applet --indicator &
+      exec-once = audio_channels &
 
       #---------------#
       # windows rules #
@@ -348,7 +349,7 @@
       windowrule=float,termfloat
       windowrule=move 25%-,termfloat
       windowrule=size 960 540,termfloat
-      windowrule=rounding 5,termfloat
+      #windowrule=rounding 5,termfloat
       windowrule=float,nemo
       #windowrule=size 1280 720,nemo
       windowrule=float,Leafpad
