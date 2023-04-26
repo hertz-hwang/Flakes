@@ -183,7 +183,7 @@ let
     elif [[ "$GTK_THEME" == "Catppuccin-Latte-Green" ]]; then
       waybar -c "$SDIR"/light_config -s "$SDIR"/light_style.css > /dev/null 2>&1 &
     else 
-      waybar -c "$SDIR"/nord_config -s "$SDIR"/nord_style.css > /dev/null 2>&1 &
+      waybar -c "$SDIR"/config -s "$SDIR"/nord_style.css > /dev/null 2>&1 &
     fi
   '';
   border_color = pkgs.writeShellScriptBin "border_color" ''
