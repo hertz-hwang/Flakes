@@ -7,11 +7,11 @@ let
   wallpaper_random = pkgs.writeShellScriptBin "wallpaper_random" ''
     if command -v swww >/dev/null 2>&1; then 
         killall dynamic_wallpaper
-        swww img $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) --transition-type random
+        swww img $(find ~/Pictures/wallpapers/. -name "*.png" | shuf -n1) --transition-type random
     else 
         killall swaybg
         killall dynamic_wallpaper
-        swaybg -i $(find ~/Pictures/wallpaper/. -name "*.png" | shuf -n1) -m fill &
+        swaybg -i $(find ~/Pictures/wallpapers/. -name "*.png" | shuf -n1) -m fill &
     fi
   '';
   grimblast_watermark = pkgs.writeShellScriptBin "grimblast_watermark" ''
