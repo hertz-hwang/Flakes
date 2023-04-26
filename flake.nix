@@ -10,6 +10,7 @@
       nur.url = "github:nix-community/NUR";
       hyprpicker.url = "github:hyprwm/hyprpicker";
       hypr-contrib.url = "github:hyprwm/contrib";
+      hypr-portal.url = "github:hyprwm/xdg-desktop-portal-hyprland";
       flake-parts.url = "github:hercules-ci/flake-parts";
       sops-nix.url = "github:Mic92/sops-nix";
       picom.url = "github:yaocccc/picom";
