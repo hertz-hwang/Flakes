@@ -1,0 +1,3 @@
+[submodule "blog/themes/zev"]
+	path = blog/themes/zev
+	url = git@git.26hz.com.cn:hertz/zev.git
