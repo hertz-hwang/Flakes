@@ -1,5 +1,5 @@
 ''
   function l
-      ls -ahl $argv
+      ls -ahl --git $argv
   end
 ''
