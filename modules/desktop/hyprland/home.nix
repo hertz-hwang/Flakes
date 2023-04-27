@@ -240,8 +240,8 @@
       bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
       bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
       # Scroll through existing workspaces with mainMod + scroll
-      bind = $mainMod, mouse_down, workspace, e+1
-      bind = $mainMod, mouse_up, workspace, e-1
+      bind = $mainMod, mouse_down, workspace, e-1
+      bind = $mainMod, mouse_up, workspace, e+1
 
       #-------------------------------------------#
       # switch between current and last workspace #
