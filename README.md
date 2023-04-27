@@ -273,3 +273,6 @@ zpool export -a
 reboot
 ```
 14. 享受它吧！
+
+### 资源
+Fork from: https://github.com/Ruixi-rebirth/flakes
