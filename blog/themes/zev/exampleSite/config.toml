@@ -1,0 +1,89 @@
+baseURL = "https://blog.26hz.com.cn"
+languageCode = "en-us"
+title = "赫兹的个人小站"
+theme = "zev"
+paginate = 7
+copyright = "© 2021 <a href=\"https://git.26hz.com.cn/hertz/zev\">zev</a>."
+hasCJKLanguage = true
+
+# 作者信息
+[author]
+  name = "Hertz Hwang"
+  email = "hertz@26hz.com.cn"
+  description = "hello hugo"
+  avatar = "https://chowray.netlify.app/images/author/avatar.gif"
+
+# 菜单/导航栏
+[menu]
+  # 顶部导航栏
+  [[menu.main]]
+    identifier = "/"
+    name = "HOME"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "/posts"
+    name = "POSTS"
+    url = "/posts"
+    weight = 2
+  [[menu.main]]
+    identifier = "/message"
+    name = "MESSAGE"
+    url = "/message"
+    weight = 3
+  [[menu.main]]
+    identifier = "/link"
+    name = "LINK"
+    url = "/link"
+    weight = 4
+  
+  # 底部社交图标
+  [[menu.social]]
+    identifier = "github"
+    name = "github"
+    url = "https://git.26hz.com.cn/hertz"
+    weight = 1
+  [[menu.social]]
+    identifier = "weibo"
+    name = "weibo"
+    url = "https://weibo.com/u/5561168966"
+    weight = 4
+
+# URL格式
+[permalinks]
+  posts = "/:section/:year:month:day:15:04/"
+  files = "/:section/:year:month:day:15:04/"
+  docs = "/:section/:year:month:day:15:04/"
+
+# 主题相关配置项
+[params]
+  keywords = ['theme', 'zev']
+  description = ""
+  mainSections = ["posts"]
+  # 国内备案号
+  beian = ""
+  # TOC目录出现字符长度限制
+  toc_show_len = 300
+
+  [params.analytics]
+    baidu = ""
+
+  [params.widget]
+    # 相关文章推荐数量
+    articles_count = 6
+    # 分类相关显示数量
+    categories_count = 6
+    # 标签相关显示数量
+    tags_count = 12
+
+  [params.aplayer]
+    theme = "#b7daff"
+    autoplay = false
+    loop = "none"
+    mutex = true
+
+  [params.dplayer]
+    theme = "#b7daff"
+    autoplay = false
+    loop = false
+    mutex = true
