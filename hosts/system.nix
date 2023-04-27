@@ -38,6 +38,15 @@
       wget
       neofetch
       exa
+      broot
+      fx
+      hexyl
+      choose
+      duf
+      ncdu
+      procs
+      httpie
+      dog
       gcc
       clang
       cargo
