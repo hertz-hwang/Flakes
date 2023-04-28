@@ -10,7 +10,7 @@ hasCJKLanguage = true
 [author]
   name = "Hertz Hwang"
   email = "hertz@26hz.com.cn"
-  description = "hello hugo"
+  description = "MiaO~~"
   avatar = "https://chowray.netlify.app/images/author/avatar.gif"
 
 # 菜单/导航栏
@@ -36,18 +36,28 @@ hasCJKLanguage = true
     name = "LINK"
     url = "/link"
     weight = 4
+  [[menu.main]]
+    identifier = "/about"
+    name = "ABOUT"
+    url = "/about"
+    weight = 5
   
   # 底部社交图标
   [[menu.social]]
-    identifier = "github"
-    name = "github"
-    url = "https://git.26hz.com.cn/hertz"
+    identifier = "bilibili"
+    name = "bilibili"
+    url = "https://space.bilibili.com/2508980"
     weight = 1
+  [[menu.social]]
+    identifier = "github"
+    name = "git"
+    url = "https://git.26hz.com.cn/hertz"
+    weight = 2
   [[menu.social]]
     identifier = "weibo"
     name = "weibo"
     url = "https://weibo.com/u/2461957043"
-    weight = 4
+    weight = 3
 
 # URL格式
 [permalinks]
