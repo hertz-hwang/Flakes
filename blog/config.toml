@@ -1,6 +1,6 @@
 baseURL = "https://blog.26hz.com.cn"
 languageCode = "en-us"
-title = "赫兹的个人小站"
+title = "Hertz 的个人小站"
 theme = "zev"
 paginate = 7
 copyright = "© 2023 <a href=\"https://git.26hz.com.cn/hertz\">Hertz Hwang</a>."
@@ -10,7 +10,7 @@ hasCJKLanguage = true
 [author]
   name = "Hertz Hwang"
   email = "hertz@26hz.com.cn"
-  description = "MiaO~~"
+  description = "Miao~~"
   avatar = "https://chowray.netlify.app/images/author/avatar.gif"
 
 # 菜单/导航栏
@@ -18,27 +18,27 @@ hasCJKLanguage = true
   # 顶部导航栏
   [[menu.main]]
     identifier = "/"
-    name = "HOME"
+    name = "主页"
     url = "/"
     weight = 1
   [[menu.main]]
     identifier = "/posts"
-    name = "POSTS"
+    name = "文章"
     url = "/posts"
     weight = 2
   [[menu.main]]
-    identifier = "/message"
-    name = "MESSAGE"
-    url = "/message"
+    identifier = "/categories"
+    name = "分类"
+    url = "/categories"
     weight = 3
   [[menu.main]]
     identifier = "/link"
-    name = "LINK"
+    name = "链接"
     url = "/link"
     weight = 4
   [[menu.main]]
     identifier = "/about"
-    name = "ABOUT"
+    name = "关于"
     url = "/about"
     weight = 5
   
