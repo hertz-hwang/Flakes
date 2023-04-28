@@ -71,6 +71,7 @@
       leafpad
       gptfdisk
       crow-translate
+      polkit_gnome
     ];
   };
   services.dbus.enable = true;
