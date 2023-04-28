@@ -12,7 +12,6 @@
       ../../../modules/desktop/hyprland
     ];
 
-  sops.defaultSopsFile = ../../../secrets/secrets.yaml;
   users.mutableUsers = false;
   users.users.root.initialHashedPassword = "$6$xLClr6zXQEwxMAH8$3g.csAWF.r0nV.rLZXJqV4OgfeeTEGq7MHJj6PRVDPFn/tgLkT3Lgy8.QBnLd2ycp95eNMvwyAWKdtmEKDpgb.";
   users.users.${user} = {
