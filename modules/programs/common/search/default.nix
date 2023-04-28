@@ -5,7 +5,7 @@
     packages = with pkgs; [
       fd
       bat
-      ripgrep
+      (ripgrep.override { withPCRE2 = true; })
     ];
   };
   programs = {
