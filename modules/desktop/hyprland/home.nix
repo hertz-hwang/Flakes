@@ -300,7 +300,7 @@
       binde=,k,resizeactive,0 -15
       binde=,j,resizeactive,0 15
       bind=,escape,submap,reset 
-      submap=resel
+      submap=reset
 
       bind=CTRL SHIFT, left, resizeactive,-15 0
       bind=CTRL SHIFT, right, resizeactive,15 0
