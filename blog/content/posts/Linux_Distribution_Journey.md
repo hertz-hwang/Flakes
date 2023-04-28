@@ -12,6 +12,7 @@ tags: [
     "Gentoo",
     "NixOS",
 ]
+cover: "https://camo.githubusercontent.com/b23b2cd305b912884d9499af165bbd1f0aad0ec86bb6fdd122e8e4d07c6b2821/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d68697265732e706e67"
 
 date: 2022-03-16T10:24:32+08:00
 draft: false
