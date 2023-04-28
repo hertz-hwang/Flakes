@@ -251,8 +251,8 @@
         "clock" = {
           "interval" = 1;
           /*"format" = "{:%I:%M %p  %A %b %d}";*/
-          "format" = "{:%H:%M}  ";
-          "format-alt" = "{:%A, %B %d, %Y (%R)}  ";
+          "format" = "{:%A, %B %d, %Y (%R)}  ";
+          "format-alt" = "{:%H:%M}  ";
           "tooltip" = true;
           /* "tooltip-format"= "{=%A; %d %B %Y}\n<tt>{calendar}</tt>" */
           "tooltip-format" = "Hertz's Studio\n<tt>{calendar}</tt>";

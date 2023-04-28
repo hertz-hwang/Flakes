@@ -72,6 +72,7 @@
       gptfdisk
       crow-translate
       polkit_gnome
+      remmina
     ];
   };
   services.dbus.enable = true;
