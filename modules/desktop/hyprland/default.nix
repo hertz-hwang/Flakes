@@ -10,7 +10,6 @@
     inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     inputs.hypr-portal.packages.${pkgs.system}.xdg-desktop-portal-hyprland
-    swww
     swaylock-effects
     pamixer
   ];
