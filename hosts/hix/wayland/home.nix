@@ -11,7 +11,7 @@
     # (import ../../../modules/theme/catppuccin-dark/wayland) ++
     # (import ../../../modules/theme/catppuccin-light/wayland) ++
     (import ../../../modules/theme/nord/wayland) ++
-    (import ../../../modules/devlop);
+    (import ../../../modules/develop);
 
   home = {
     username = "${user}";

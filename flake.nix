@@ -13,7 +13,6 @@
       hypr-portal.url = "github:hyprwm/xdg-desktop-portal-hyprland";
       flake-parts.url = "github:hercules-ci/flake-parts";
       sops-nix.url = "github:Mic92/sops-nix";
-      picom.url = "github:yaocccc/picom";
       emacs-overlay.url = "github:nix-community/emacs-overlay";
       musnix.url = "github:musnix/musnix";
       hyprland = {
