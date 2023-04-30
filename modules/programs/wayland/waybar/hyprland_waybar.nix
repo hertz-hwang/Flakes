@@ -179,8 +179,8 @@
         modules-right = [
           "pulseaudio"
           #"backlight"
-          "memory"
           "cpu"
+          "memory"
           "network"
           #"battery"
           "custom/powermenu"
@@ -231,7 +231,7 @@
             "default" = [ "" "" "" ];
           };
           "states" = {
-            "warning" = 85;
+            "warning" = 90;
           };
           "on-click" = "pamixer -t";
           "tooltip" = false;
@@ -280,7 +280,7 @@
         };
         "memory" = {
           "interval" = 1;
-          "format" = "﬙ {percentage}%";
+          "format" = "﬙ {used}GiB/{total}GiB";
           "states" = {
             "warning" = 85;
           };
@@ -429,8 +429,8 @@
             "modules-right": [
               "pulseaudio",
               //"backlight",
-              "memory",
               "cpu",
+              "memory",
               "network",
               //"battery",
               "custom/powermenu",
@@ -733,8 +733,8 @@
             "modules-right": [
               "pulseaudio",
               //"backlight",
-              "memory",
               "cpu",
+              "memory",
               "network",
               //"battery",
               "custom/powermenu",
