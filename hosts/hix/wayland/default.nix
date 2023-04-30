@@ -41,8 +41,8 @@
   };
   boot = {
     supportedFilesystems = [ "zfs" "ntfs" ];
-    #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    #kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     loader = {
       systemd-boot = {
         enable = true;
