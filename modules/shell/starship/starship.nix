@@ -20,7 +20,7 @@
           disabled = false;
           format = "$indicator";
           fish_indicator = "";
-          #bash_indicator = "[BASH](white) ";
+          bash_indicator = "[BASH](white) ";
           #zsh_indicator = "";
         };
         username = {

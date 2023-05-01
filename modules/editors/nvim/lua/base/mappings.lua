@@ -76,3 +76,6 @@ keymap("n", "<C-n>", ":tabnew<CR>", opts)
 -- msic --
 keymap("n", "<C-u>", "5k", opts)
 keymap("n", "<C-d>", "5j", opts)
+
+-- show file path --
+keymap("n", "<Space>p", ":echo expand('%:p')<CR>", opts)

@@ -14,4 +14,5 @@
   ./youtube-tui
   ./aliyun-cli
   ./rnnoise
+  ./wezterm
 ]

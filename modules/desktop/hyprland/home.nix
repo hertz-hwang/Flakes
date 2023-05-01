@@ -66,8 +66,8 @@
         gaps_in = 3
         gaps_out = 5
         border_size = 3
-        col.active_border = rgb(ffc0cb)
-        col.inactive_border = rgba(595959aa)
+        col.active_border = rgb(81a1c1)
+        col.inactive_border = rgba(434c5eaa)
 
         layout = dwindle # master|dwindle 
       }
@@ -162,8 +162,8 @@
         sensitivity = -0.5
       }
 
-      bind = $mainMod, Return, exec, kitty fish
-      bind = $mainMod SHIFT, Return, exec, kitty --class="termfloat" fish
+      bind = $mainMod, Return, exec, wezterm start -- fish
+      bind = $mainMod SHIFT, Return, exec, wezterm start --class="termfloat" fish
       bind = $mainMod SHIFT, C, killactive,
       bind = $mainMod SHIFT, Q, exit,
       bind = $mainMod SHIFT, Space, togglefloating,
@@ -272,8 +272,9 @@
       #------------------------# 
       bind=$mainMod,B,exec,firefox
       bind=$mainMod,E,exec,nemo
-      bind=$mainMod SHIFT,M,exec,kitty --class="musicfox" --hold sh -c "musicfox"
-      bind=$mainMod SHIFT,D,exec,kitty  --class="danmufloat" --hold sh -c "export TERM=xterm-256color && bili"
+      # bind=$mainMod SHIFT,M,exec,kitty --class="musicfox" --hold sh -c "musicfox"
+      bind=$mainMod SHIFT,M,exec,wezterm start --class="musicfox" musicfox
+      #bind=$mainMod SHIFT,D,exec,kitty  --class="danmufloat" "export TERM=xterm-256color && bili"
       bind=$mainMod SHIFT,X,exec,myswaylock
       bind=$mainMod,T,exec,telegram-desktop
       bind=$mainMod,Q,exec,icalingua-plus-plus --enable-features=UseOzonePlatform --ozone-platform=wayland
@@ -373,7 +374,7 @@
       windowrule=opacity 0.95,title:Telegram
       windowrule=opacity 0.95,title:QQ
       windowrule=opacity 0.95,title:NetEase Cloud Music Gtk4
-      windowrule=animation slide right,kitty
+      windowrule=animation slide right,wezterm
       windowrule=workspace name:QQ, title:Icalingua++
       windowrule=workspace name:TG, title:Telegram
       windowrule=workspace name:Music, title:NetEase Cloud Music Gtk4

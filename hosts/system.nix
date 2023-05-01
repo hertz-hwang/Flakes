@@ -68,7 +68,7 @@
       rar
       frp
       sops
-      leafpad
+      sublime3
       gptfdisk
       crow-translate
       polkit_gnome

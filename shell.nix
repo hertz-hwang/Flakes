@@ -9,7 +9,6 @@ pkgs.mkShell {
     | |      | | | (_| | |   <  |  __/ \\__ \\
     |_|      |_|  \__,_| |_|\_\  \___| |___/
           "
-            export PS1="[\e[0;34m(Flakes)\$\e[m:\w]\$ "
   '';
   nativeBuildInputs = with pkgs; [ git nix-prefetch-git nix-prefetch-scripts neovim ];
 }

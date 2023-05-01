@@ -21,7 +21,8 @@ in
       extraPackages = [
       ];
       #-- Plugins --#
-      plugins = with pkgs.vimPlugins;[ ];
+      plugins = with pkgs.vimPlugins;[
+      ];
       #-- --#
     };
   };
