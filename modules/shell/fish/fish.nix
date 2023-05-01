@@ -13,7 +13,7 @@
     shellAliases = {
       gaa = "git add .";
       gcm = "git commit -m";
-      gca = "git commit --amend -m";
+      gca = "git commit --amend";
       gpl = "git pull";
       gph = "git push";
       gco = "git checkout";
@@ -40,5 +40,5 @@
   home.file.".config/fish/functions/owf.fish".text = import ./functions/owf.nix;
   home.file.".config/fish/functions/xdg-get.fish".text = import ./functions/xdg-get.nix;
   home.file.".config/fish/functions/xdg-set.fish".text = import ./functions/xdg-set.nix;
-  home.file.".config/fish/functions/fish_prompt.fish".source = ./functions/fish_prompt.fish;
+  # home.file.".config/fish/functions/fish_prompt.fish".source = ./functions/fish_prompt.fish;
 }
