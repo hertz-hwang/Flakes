@@ -8,8 +8,8 @@
       settings = {
         add_newline = true;
         format = ''
-          ╔═❄️ $shlvl$shell$username$hostname$nix_shell$directory$git_branch$git_commit$git_state$git_status$golang$jobs$cmd_duration
-          ╚═$character
+          ╔═ ❄️ $shlvl$shell$username$hostname$nix_shell$directory$git_branch$git_commit$git_state$git_status$golang$jobs$cmd_duration
+          ╚═ $character
         '';
         shlvl = {
           disabled = false;
