@@ -28,7 +28,7 @@ rustPlatform.buildRustPackage rec {
 
   meta = with lib; {
     description = "A Solution to your Wayland Wallpaper Woes. ";
-    homepage = "https://github.com/Horus645/${pname}";
+    homepage = "https://github.com/Horus645/swww";
     license = licenses.gpl3Only;
     platforms = [ "x86_64-linux" ];
     maintainers = with maintainers; [ Ruixi-rebirth Hertz ];
