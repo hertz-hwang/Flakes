@@ -15,23 +15,23 @@
 
               -- Font config
               font = font_with_fallback(font_name),
-              -- font_rules = {
-              	-- {
-              		-- italic = true,
-              		-- font = font_with_fallback(font_name, { italic = true }),
-              	-- },
-              	-- {
-              		-- italic = true,
-              		-- intensity = "Bold",
-              		-- font = font_with_fallback(font_name, { italic = true, bold = true }),
-              	-- },
-              	-- {
-              		-- intensity = "Bold",
-              		-- font = font_with_fallback(font_name, { bold = true }),
-              	-- },
-              -- },
+              font_rules = {
+              	{
+              		italic = true,
+              		font = font_with_fallback(font_name, { italic = false }),
+              	},
+              	{
+              		italic = true,
+              		intensity = "Bold",
+              		font = font_with_fallback(font_name, { italic = false, bold = true }),
+              	},
+              	{
+              		intensity = "Bold",
+              		font = font_with_fallback(font_name, { bold = true }),
+              	},
+              },
               warn_about_missing_glyphs = false,
-              font_size = 16,
+              font_size = 13,
               line_height = 1.0,
 
               -- Cursor style
