@@ -89,7 +89,7 @@
           "Documents"
           "Videos"
           ".cache"
-          "Codelearning"
+          "Workspace"
           ".npm-global"
           ".config"
           ".thunderbird"
