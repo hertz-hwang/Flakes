@@ -3,7 +3,7 @@
   programs = {
     btop = {
       settings = {
-        color_theme = "catppuccin_latte";
+        color_theme = "nord";
       };
     };
   };
