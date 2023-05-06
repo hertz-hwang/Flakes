@@ -167,7 +167,6 @@
         modules-left = [
           "custom/launcher"
           "wlr/workspaces"
-          "temperature"
           #"idle_inhibitor"
           "custom/wall"
           #"mpd"
@@ -179,6 +178,7 @@
         modules-right = [
           "pulseaudio"
           #"backlight"
+          "temperature"
           "cpu"
           "memory"
           "network"
@@ -231,7 +231,7 @@
             "default" = [ "" "" "" ];
           };
           "states" = {
-            "warning" = 90;
+            "warning" = 95;
           };
           "on-click" = "pamixer -t";
           "tooltip" = false;
