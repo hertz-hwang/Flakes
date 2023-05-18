@@ -44,7 +44,7 @@
         git_branch = {
           only_attached = true;
           format = "$symbol[$branch]($style) ";
-          symbol = "שׂ ";
+          symbol = " ";
           style = "yellow bold";
         };
         git_commit = {
