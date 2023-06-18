@@ -24,6 +24,7 @@ in
       inputs.hyprland.nixosModules.default
       inputs.sops-nix.nixosModules.sops
       inputs.musnix.nixosModules.musnix
+      inputs.nixd.overlays.default
       inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {

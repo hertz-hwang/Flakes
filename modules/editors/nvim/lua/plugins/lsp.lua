@@ -170,6 +170,9 @@ return {
 		nvim_lsp.nil_ls.setup({
 			on_attach = on_attach,
 		})
+		nvim_lsp.nixd.setup({
+			on_attach = on_attach,
+		})
 		nvim_lsp.hls.setup({})
 
 		-- ebuild Syntastic(install dev-util/pkgcheck)
