@@ -47,12 +47,12 @@ return {
 		---------------------
 		-- nix
 		nvim_lsp.nixd.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
 			capabilities = capabilities,
 		})
 		-- GoLang
 		nvim_lsp["gopls"].setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
 			capabilities = capabilities,
 			settings = {
 				gopls = {
@@ -72,13 +72,16 @@ return {
 		-- require("rust-tools").setup({
 		-- 	server = {
 		-- 		capabilities = capabilities,
-		-- 		on_attach = on_attach,
+		-- 		on_attach = on_attach(),
 		-- 	},
 		-- }) -- C
-		nvim_lsp.clangd.setup({})
+		nvim_lsp.clangd.setup({
+			on_attach = on_attach(),
+			capabilities = capabilities,
+		})
 		--Python
 		nvim_lsp.pyright.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
 			capabilities = capabilities,
 			settings = {
 				python = {
@@ -94,7 +97,7 @@ return {
 
 		--sumneko_lua
 		nvim_lsp.lua_ls.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -120,37 +123,45 @@ return {
 		})
 
 		nvim_lsp.rust_analyzer.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
 			capabilities = capabilities,
 		})
 		nvim_lsp.html.setup({
-			--[[ on_attach = on_attach, ]]
+			on_attach = on_attach(),
+			capabilities = capabilities,
 			cmd = { "vscode-html-language-server", "--stdio" },
 		})
 
 		nvim_lsp.cssls.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
+			capabilities = capabilities,
 			cmd = { "vscode-css-language-server", "--stdio" },
 		})
 
 		nvim_lsp.zk.setup({
+			on_attach = on_attach(),
+			capabilities = capabilities,
 			cmd = { "zk", "lsp" },
 		})
 
 		nvim_lsp.tsserver.setup({
-			on_attach = on_attach,
+			on_attach = on_attach(),
+			capabilities = capabilities,
 			cmd = { "typescript-language-server", "--stdio" },
 		})
 
 		nvim_lsp.bashls.setup({
+			on_attach = on_attach(),
+			capabilities = capabilities,
 			cmd = { "bash-language-server", "start" },
 		})
 
 		--nvim_lsp.rnix.setup({
-		--	on_attach = on_attach,
+		--	on_attach = on_attach(),
+		--	capabilities = capabilities,
 		--})
 		--nvim_lsp.nil_ls.setup({
-		--	on_attach = on_attach,
+		--	on_attach = on_attach(),
 		--	settings = {
 		--		["nil"] = {
 		--			nix = {
@@ -205,7 +216,7 @@ return {
 			end,
 		})
 
-		-- show diagnostics on save
+		-- show diagnostics when InsertLeave
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = { "go", "rust", "nix", "c++" },
 			callback = function(args)

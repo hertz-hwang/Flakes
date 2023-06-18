@@ -34,14 +34,6 @@ return {
 			)
 		end
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-		local callback = function()
-			vim.lsp.buf.format({
-				bufnr = bufnr,
-				filter = function(client)
-					return client.name == "null-ls"
-				end,
-			})
-		end
 		require("null-ls").setup({
 			sources = {
 				-- you must download code formatter by yourself!
@@ -62,6 +54,12 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
+							vim.lsp.buf.format({
+								bufnr = bufnr,
+								filter = function()
+									return client.name == "null-ls"
+								end,
+							})
 							async_formatting(bufnr)
 						end,
 					})
