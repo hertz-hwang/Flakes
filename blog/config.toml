@@ -71,7 +71,7 @@ hasCJKLanguage = true
   description = ""
   mainSections = ["posts"]
   # 国内备案号
-  beian = ""
+  beian = "闽ICP备2023012558号-1"
   # TOC目录出现字符长度限制
   toc_show_len = 300
 
