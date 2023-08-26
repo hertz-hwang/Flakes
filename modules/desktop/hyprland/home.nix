@@ -32,7 +32,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
-    nvidiaPatches = false;
+    #nvidiaPatches = false;
     extraConfig = ''
       $mainMod = SUPER
       # $scripts=$HOME/.config/hypr/scripts

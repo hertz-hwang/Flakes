@@ -5,7 +5,7 @@
     twemoji-color-font
   ];
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       sarasa-gothic
       ubuntu_font_family
       jetbrains-mono
