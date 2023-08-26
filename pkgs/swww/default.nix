@@ -9,7 +9,7 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "swww";
-  version = "0.7.3";
+  version = "0.8.1";
 
   src = fetchFromGitHub {
     owner = "Horus645";
@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-1SmCeIlcjOX3yCvpfqQ82uq4h2xlGhX9OCwKb6jGK78=";
   };
 
-  cargoHash = "sha256-52uRogUcwR/NeuZC3g2m6f6A7HlxLmFn0sXxpsc+SpA=";
+  cargoHash = "sha256-LdT4eIoqmNqAgEW/mIxsQMUn7BOcNk6SZm9rUJJghcI=";
 
   nativeBuildInputs = [ pkg-config ];
 
