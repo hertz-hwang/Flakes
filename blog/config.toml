@@ -1,6 +1,6 @@
-baseURL = "https://blog.26hz.com.cn"
+baseURL = "https://26hz.com.cn"
 languageCode = "en-us"
-title = "Hertz 的个人小站"
+title = "Hertz赫兹空间"
 theme = "zev"
 paginate = 7
 copyright = "© 2023 <a href=\"https://git.26hz.com.cn/hertz\">Hertz Hwang</a>."
@@ -11,7 +11,8 @@ hasCJKLanguage = true
   name = "Hertz Hwang"
   email = "hertz@26hz.com.cn"
   description = "喵~~"
-  avatar = "https://chowray.netlify.app/images/author/avatar.gif"
+  #avatar = "https://chowray.netlify.app/images/author/avatar.gif"
+  avatar = "https://file.26hz.com.cn/img/avatar.jpg"
 
 # 菜单/导航栏
 [menu]

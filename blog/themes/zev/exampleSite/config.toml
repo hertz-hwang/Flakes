@@ -1,6 +1,6 @@
 baseURL = "https://blog.26hz.com.cn"
 languageCode = "en-us"
-title = "赫兹的个人小站"
+title = "Hertz赫兹空间"
 theme = "zev"
 paginate = 7
 copyright = "© 2021 <a href=\"https://git.26hz.com.cn/hertz/zev\">zev</a>."
