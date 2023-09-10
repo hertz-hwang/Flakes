@@ -37,7 +37,7 @@
       neovim
       wget
       neofetch
-      exa
+      eza
       broot
       fx
       hexyl
