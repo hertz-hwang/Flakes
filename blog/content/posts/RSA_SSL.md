@@ -10,7 +10,6 @@ tags: [
     "TLS",
     "openssl",
 ]
-cover: "https://www.ssl.com/wp-content/uploads/2019/10/ssl-logo-black.svg"
 
 date: 2023-05-13T14:16:33+08:00
 draft: false

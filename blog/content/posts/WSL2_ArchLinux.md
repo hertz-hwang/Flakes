@@ -10,7 +10,6 @@ tags: [
     "Linux",
     "WSL/WSL2",
 ]
-cover: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31"
 
 date: 2023-07-13T10:24:11+08:00
 draft: false
