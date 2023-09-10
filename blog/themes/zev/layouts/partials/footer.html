@@ -49,8 +49,17 @@
   <p>{{ . | safeHTML }}</p>
   {{ end }}
 
+  {{ with .Site.Params.Gonganbeian }}
+    <p>
+      <img src="/gonganbeian.png">
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35012102500827" target="_blank">{{ .}}</a>
+    </p>
+  {{ end  }}
+
   {{ with .Site.Params.Beian }}
-  <p><a href="https://beian.miit.gov.cn" target="_blank">{{ . }}</a></p>
+    <p>
+      <a href="https://beian.miit.gov.cn" target="_blank">{{ . }}</a>
+    </p>
   {{ end }}
 
   <p>

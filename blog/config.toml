@@ -73,6 +73,7 @@ hasCJKLanguage = true
   mainSections = ["posts"]
   # 国内备案号
   beian = "闽ICP备2023012558号-1"
+  gonganbeian = "闽公网安备 35012102500827号"
   # TOC目录出现字符长度限制
   toc_show_len = 300
 
