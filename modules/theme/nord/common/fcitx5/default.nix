@@ -5,7 +5,7 @@
   home.file.".local/share/fcitx5/rime" = {
     source = builtins.fetchGit {
       url = https://git.26hz.com.cn/hertz/rime;
-      rev = "3523371ba06c3e1311da787b48762371b0848bdd";
+      rev = "16eb7c77cb186c3b8747e50cc733fd78bd057868";
     };
     recursive = true;
   };

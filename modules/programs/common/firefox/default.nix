@@ -128,10 +128,6 @@
         "xpinstall.signatures.required" = false;
         "general.warnOnAboutConfig" = false;
       };
-      search = {
-        default = "DuckDuckGo";
-        # engines = {};
-      };
       userChrome = ''
               /*================== SIDEBAR ==================*/
         #sidebar-box,
