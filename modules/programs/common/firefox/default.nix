@@ -15,6 +15,11 @@
           url = "https://addons.mozilla.org/firefox/downloads/file/4140393/bitwarden_password_manager-2023.7.1.xpi";
           sha256 = "sha256-ozlx2A9VInn5ZXl4aTiujojEuVwp+DOcQvXeR/FSAK0=";
         })
+        (pkgs.fetchFirefoxAddon {
+          name = "Immersive-translate";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4160018/immersive_translate-0.8.9.xpi";
+          sha256 = "sha256-DJ6Nop5LSFVpJa0ZgDrvFsYvocAjjuXCFOZ4WiB1JVQ=";
+        })
       ];
       extraPolicies = {
         DisplayBookmarksToolbar = true;
