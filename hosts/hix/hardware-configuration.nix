@@ -26,8 +26,9 @@
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
+    { device = "rpool/local/nix";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/etc/nixos" =
