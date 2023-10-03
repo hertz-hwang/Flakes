@@ -5,21 +5,15 @@
     waybar
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      waybar =
-        let
-          hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-          waybarPatchFile = import ./workspace-patch.nix { inherit pkgs hyprctl; };
-        in
-        prev.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          postPatch = (oldAttrs.postPatch or "") + ''
-            sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-          '';
-        });
-    })
-  ];
+  #nixpkgs.overlays = [
+  #(final: prev: {
+  #waybar = prev.waybar.overrideAttrs (oldAttrs: {
+  #mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  ##postPatch = (oldAttrs.postPatch or "") + ''
+  ##  sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp'';
+  #});
+  #})
+  #];
 
   home-manager.users.${user} = {
     # Home-manager waybar config
@@ -166,7 +160,8 @@
         "height" = 36;
         modules-left = [
           "custom/launcher"
-          "wlr/workspaces"
+          "hyprland/workspaces"
+          #"wlr/workspaces"
           #"idle_inhibitor"
           "custom/wall"
           #"mpd"
@@ -202,12 +197,25 @@
           "exec" = "sleep 1s && cava-internal";
           "tooltip" = false;
         };
-        "wlr/workspaces" = {
-          "format" = "{icon}";
+        "hyprland/workspaces" = {
+          "format" = "{name}: {icon}";
+          "format-icons" = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            "active" = "";
+            "default" = "";
+          };
           "on-click" = "activate";
-          # "on-scroll-up" = "hyprctl dispatch workspace e+1";
-          # "on-scroll-down" = "hyprctl dispatch workspace e-1";
         };
+        #"wlr/workspaces" = {
+        #  "format" = "{icon}";
+        #  "on-click" = "activate";
+        #  # "on-scroll-up" = "hyprctl dispatch workspace e+1";
+        #  # "on-scroll-down" = "hyprctl dispatch workspace e-1";
+        #};
         "idle_inhibitor" = {
           "format" = "{icon}";
           "format-icons" = {
@@ -229,9 +237,6 @@
           "format-muted" = "󰖁 Muted";
           "format-icons" = {
             "default" = [ "" "" "" ];
-          };
-          "states" = {
-            "warning" = 95;
           };
           "on-click" = "pamixer -t";
           "tooltip" = false;
@@ -461,9 +466,6 @@
               "format-muted": "󰖁 Muted",
               "on-click": "pamixer -t",
               "scroll-step": 1,
-              "states": {
-                "warning": 85
-              },
               "tooltip": false
             },
             "temperature": {
@@ -750,9 +752,6 @@
               "format-muted": "󰖁 Muted",
               "on-click": "pamixer -t",
               "scroll-step": 1,
-              "states": {
-                "warning": 85
-              },
               "tooltip": false
             },
             "temperature": {
