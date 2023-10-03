@@ -26,9 +26,8 @@
     };
 
   fileSystems."/nix" =
-    { device = "rpool/local/nix";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+    { device = "/dev/disk/by-label/nix";
+      fsType = "xfs";
     };
 
   fileSystems."/etc/nixos" =
@@ -43,6 +42,17 @@
       options = [ "defaults" "size=32G" "mode=1777" ];
     };
 
+  fileSystems."/tmp/kvm" =
+    { device = "/nix/persist/kvm";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/nix/persist/kvm" =
+    { device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=48G" "mode=1777" ];
+    };
 
   swapDevices = [ ];
 
@@ -55,5 +65,6 @@
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
