@@ -73,6 +73,7 @@
       crow-translate
       polkit_gnome
       remmina
+      TH-Tshyn
     ];
   };
   services.dbus.enable = true;
