@@ -47,6 +47,7 @@
       procs
       httpie
       dog
+      gnumake
       gcc
       clang
       cargo

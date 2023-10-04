@@ -176,9 +176,9 @@
   };
   security.polkit.enable = true;
   security.sudo = {
-    enable = false;
+    enable = true;
     extraConfig = ''
-      ${user} ALL=(ALL) NOPASSWD:ALL
+      ${user} ALL=(ALL) ALL
     '';
   };
   security.doas = {
