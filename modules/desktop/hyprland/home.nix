@@ -165,8 +165,8 @@
         sensitivity = -0.5
       }
 
-      bind = $mainMod, Return, exec, wezterm start -- fish
-      bind = $mainMod SHIFT, Return, exec, wezterm start --class="termfloat" fish
+      bind = $mainMod, Return, exec, wezterm start -- zsh
+      bind = $mainMod SHIFT, Return, exec, wezterm start --class="termfloat" zsh
       bind = $mainMod SHIFT, C, killactive,
       bind = $mainMod SHIFT, Q, exit,
       bind = $mainMod SHIFT, Space, togglefloating,

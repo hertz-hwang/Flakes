@@ -23,4 +23,4 @@ gc:
 git-add:
 	git add .
 
-hix: git-add deploy gc
+local: git-add deploy

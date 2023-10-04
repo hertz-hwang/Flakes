@@ -138,6 +138,7 @@
       pkgs.sway-contrib.grimshot
       flameshot
       grim
+      zoxide
     ];
   };
 

@@ -31,7 +31,7 @@
   };
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ fish ];
+    shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
       git
       neovim
